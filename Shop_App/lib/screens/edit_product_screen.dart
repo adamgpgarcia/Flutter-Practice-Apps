@@ -10,6 +10,7 @@ class EditProductScreen extends StatefulWidget {
 }
 
 class _EditProductScreenState extends State<EditProductScreen> {
+  //focus nodes change focus of form fields depending on if enter is clicked
   final _priceFocusNode = FocusNode();
   final _descriptionFocusNode = FocusNode();
   final _imageUrlController = TextEditingController();
@@ -36,6 +37,8 @@ class _EditProductScreenState extends State<EditProductScreen> {
   var _isLoading = false;
 
   @override
+
+  //updates image of product when page loads
   void initState() {
     _imageUrlFocusNode.addListener(_updateImageUrl);
     super.initState();
@@ -44,7 +47,10 @@ class _EditProductScreenState extends State<EditProductScreen> {
   @override
   void didChangeDependencies() {
     if (_isInit) {
+      //arguments passed via modalroute
       final productId = ModalRoute.of(context).settings.arguments as String;
+
+      //checks if product id was recieved to prevent dot referencing null
       if (productId != null) {
         _editedProduct = Provider.of<Products>(context).findById(productId);
         _initValues = {
@@ -60,8 +66,10 @@ class _EditProductScreenState extends State<EditProductScreen> {
     super.didChangeDependencies();
   }
 
+  //form saving function that validates form
   void _saveForm() {
     final isValid = _form.currentState.validate();
+    //if not valid returns out of widget
     if (!isValid) {
       return;
     }
@@ -75,11 +83,13 @@ class _EditProductScreenState extends State<EditProductScreen> {
       setState(() {
         _isLoading = true;
       });
+      //pops page if loading
       Navigator.of(context).pop();
     } else {
       Provider.of<Products>(context, listen: false)
           .addProduct(_editedProduct)
           .catchError((onError) {
+        //informs user there was an error
         return showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
@@ -108,6 +118,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
     }
   }
 
+  //function checks for valid image URLs
   void _updateImageUrl() {
     if (!_imageUrlFocusNode.hasFocus) {
       if ((!_imageUrlController.text.startsWith('http') &&
@@ -121,6 +132,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
     }
   }
 
+  //clears Focus Nodes after use
   @override
   void dispose() {
     _imageUrlFocusNode.removeListener(_updateImageUrl);
@@ -131,6 +143,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
     super.dispose(); //ls
   }
 
+  //styling of form page
   @override
   Widget build(BuildContext context) {
     return Scaffold(

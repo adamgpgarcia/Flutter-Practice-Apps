@@ -9,6 +9,7 @@ class CartItem extends StatelessWidget {
   final int quantity;
   final String title;
 
+  //cart item constructor
   CartItem(
     this.id,
     this.productId,
@@ -17,8 +18,10 @@ class CartItem extends StatelessWidget {
     this.price,
   );
 
+  //this widget presents the cart item to the user and allows for the user to swip item to remove from cart
   @override
   Widget build(BuildContext context) {
+    //Dismissible allows for a widget to be swipped
     return Dismissible(
       key: ValueKey(id),
       background: Container(
@@ -32,6 +35,7 @@ class CartItem extends StatelessWidget {
       ),
       direction: DismissDirection.endToStart,
       confirmDismiss: (direction) {
+        //prompts a dialog box and allows user to make a choice with two buttons
         return showDialog(
           context: context,
           builder: (ctx) => AlertDialog(
@@ -55,6 +59,7 @@ class CartItem extends StatelessWidget {
         );
       },
       onDismissed: (direction) {
+        //uses provider to invoke function in that provider class and sends ID
         Provider.of<Cart>(context, listen: false).removeItem(productId);
       },
       child: Card(

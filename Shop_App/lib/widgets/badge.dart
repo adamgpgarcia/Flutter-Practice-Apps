@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//this widget was created to give the shopping cart a notification that there is something left in it
 class Badge extends StatelessWidget {
   const Badge({
     Key key,

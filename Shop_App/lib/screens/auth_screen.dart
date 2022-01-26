@@ -1,11 +1,11 @@
 import 'dart:math';
 import 'package:provider/provider.dart';
 import '../providers/auth.dart';
-
 import 'package:flutter/material.dart';
 
 enum AuthMode { Signup, Login }
 
+//Formating Authentication Screen
 class AuthScreen extends StatelessWidget {
   static const routeName = '/auth';
 
@@ -46,7 +46,6 @@ class AuthScreen extends StatelessWidget {
                           EdgeInsets.symmetric(vertical: 8.0, horizontal: 94.0),
                       transform: Matrix4.rotationZ(-8 * pi / 180)
                         ..translate(-10.0),
-                      // ..translate(-10.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         color: Colors.deepOrange.shade900,
@@ -102,6 +101,7 @@ class _AuthCardState extends State<AuthCard> {
   var _isLoading = false;
   final _passwordController = TextEditingController();
 
+  //When user submits login data _submit check for valid credentials
   void _submit() {
     if (!_formKey.currentState.validate()) {
       // Invalid!
@@ -112,7 +112,7 @@ class _AuthCardState extends State<AuthCard> {
       _isLoading = true;
     });
     if (_authMode == AuthMode.Login) {
-      // Log use
+      // Log user
     } else {
       // Sign user up
       Provider.of<Auth>(context, listen: false).signup(
@@ -125,6 +125,7 @@ class _AuthCardState extends State<AuthCard> {
     });
   }
 
+  //changes status of login status
   void _switchAuthMode() {
     if (_authMode == AuthMode.Login) {
       setState(() {
@@ -139,6 +140,7 @@ class _AuthCardState extends State<AuthCard> {
 
   @override
   Widget build(BuildContext context) {
+    //Media Query.of checks size of mobile device and returns the size to a variable
     final deviceSize = MediaQuery.of(context).size;
     return Card(
       shape: RoundedRectangleBorder(
@@ -146,6 +148,7 @@ class _AuthCardState extends State<AuthCard> {
       ),
       elevation: 8.0,
       child: Container(
+        //changes hight of container depending on AuthMode
         height: _authMode == AuthMode.Signup ? 320 : 260,
         constraints:
             BoxConstraints(minHeight: _authMode == AuthMode.Signup ? 320 : 260),
@@ -159,11 +162,11 @@ class _AuthCardState extends State<AuthCard> {
                 TextFormField(
                   decoration: InputDecoration(labelText: 'E-Mail'),
                   keyboardType: TextInputType.emailAddress,
+                  //check for valid user input
                   validator: (value) {
                     if (value.isEmpty || !value.contains('@')) {
                       return 'Invalid email!';
                     }
-                    return null;
                     return null;
                   },
                   onSaved: (value) {
@@ -203,6 +206,7 @@ class _AuthCardState extends State<AuthCard> {
                   CircularProgressIndicator()
                 else
                   RaisedButton(
+                    //depreciated
                     child:
                         Text(_authMode == AuthMode.Login ? 'LOGIN' : 'SIGN UP'),
                     onPressed: _submit,
@@ -215,6 +219,7 @@ class _AuthCardState extends State<AuthCard> {
                     textColor: Theme.of(context).primaryTextTheme.button.color,
                   ),
                 FlatButton(
+                  //depreciated
                   child: Text(
                       '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'} INSTEAD'),
                   onPressed: _switchAuthMode,

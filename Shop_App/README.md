@@ -1,16 +1,13 @@
-# shopApp
+Project Title: Shop App
 
-A new Flutter project.
+Project Description: A shopping application where you can can buy items online. Once items are chosen they can purchased. The database is hosted on FireStore and not locally. 
 
-## Getting Started
+Goal: Learn how providers/Listeners and consumers operate, forms and editing user data, form validation, HTTP requests, async and await, error handling, login page, and future builders.
 
-This project is a starting point for a Flutter application.
+Technologies used: Dart, Flutter and Firestore.
 
-A few resources to get you started if this is your first Flutter project:
+Challenges: future builders, async and wait, and form validation.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Progress: Not finished, created parts of the project needed to write my Senior Projects code.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Credit:  Udemy Course Instructor: Maximilian Schwarzmüller 

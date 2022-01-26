@@ -11,6 +11,7 @@ class ProductItem extends StatelessWidget {
 
   // ProductItem(this.id, this.title, this.imageUrl);
 
+  //This widget uses grid tiles with a gesture detector to allow user to select the item they want to look at
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context,
@@ -53,14 +54,15 @@ class ProductItem extends StatelessWidget {
             Scaffold.of(context).hideCurrentSnackBar();
             Scaffold.of(context).showSnackBar(
               SnackBar(
-                content: Text(
-                  'added item to cart',
-                ),
-                duration: Duration(seconds: 2),
-                action: SnackBarAction(label: 'UNDO', onPressed: (){
-                  cart.removeSingleItem(product.id);
-                })
-              ),
+                  content: Text(
+                    'added item to cart',
+                  ),
+                  duration: Duration(seconds: 2),
+                  action: SnackBarAction(
+                      label: 'UNDO',
+                      onPressed: () {
+                        cart.removeSingleItem(product.id);
+                      })),
             );
           },
         ),

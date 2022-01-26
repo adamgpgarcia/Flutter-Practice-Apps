@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shopApp/screens/user_products_screen.dart';
 import '../screens/user_products_screen.dart';
 
+//App drawer for site navigation
 class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -21,13 +22,14 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           Divider(),
-            ListTile(
-          leading: Icon(Icons.edit),
-          title: Text('Manage Products'),
-          onTap: (){
-            Navigator.of(context).pushReplacementNamed(UserProductsScreen.routeName);
-          },
-        ),
+          ListTile(
+            leading: Icon(Icons.edit),
+            title: Text('Manage Products'),
+            onTap: () {
+              Navigator.of(context)
+                  .pushReplacementNamed(UserProductsScreen.routeName);
+            },
+          ),
         ],
       ),
     );
