@@ -1,16 +1,11 @@
-# MealApp
+Project Title: Meal App
 
-A new Flutter project.
+Project Description: A multipage food database app that takes data from various locations in the local app and compiles filtered and changing datasets. Heavly focused on page navagation and content filtering. 
 
-## Getting Started
+Goal: Learn concepts such as main screens, page navigation, passing data to constructors, named routes, models, list filtering, pushing pages, and various page navagation method. 
 
-This project is a starting point for a Flutter application.
+Technologies used: Dart and Flutter
 
-A few resources to get you started if this is your first Flutter project:
+Challenges: With the way named routes work and widgets pass data to other widgets. 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Credit:  Udemy Course Instructor: Maximilian Schwarzmüller 

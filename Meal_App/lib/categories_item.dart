@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './category_meal_screen.dart';
 
+//Catergory stateless widget
 class CategoryItem extends StatelessWidget {
   final String title;
   final Color color;
@@ -19,19 +20,21 @@ class CategoryItem extends StatelessWidget {
   //   ); //#160
   // }
 
-  void selectCategory(BuildContext ctx) {          //navigate pages with navigator and material page route
+  void selectCategory(BuildContext ctx) {
+    //navigate pages with navigator and material page route
     Navigator.of(ctx).pushNamed(
       //'/category-meals',
-      CategoryMealScreen.routeName,      // alternative of line above main #1 
+      CategoryMealScreen.routeName, // alternative of line above main #1
       arguments: {
-          'id' : id,
-          'title' : title,
-        },
+        'id': id,
+        'title': title,
+      },
     ); //#162
   }
 
   @override
   Widget build(BuildContext context) {
+    //special type of button widget that has a splash effect built in
     return InkWell(
       onTap: () => selectCategory(context),
       splashColor: Theme.of(context).primaryColor,

@@ -9,6 +9,7 @@ class CategoriesScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Deli Meal'),
       ),
+      //grid view allows for a list to be mapped to a grid. Grid is highly customizable.
       body: GridView(
         padding: EdgeInsets.all(25),
         children: CATEGORY_DATA
@@ -20,6 +21,7 @@ class CategoriesScreen extends StatelessWidget {
               ),
             )
             .toList(),
+        //grid formating
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 200,
           childAspectRatio: 3 / 2,

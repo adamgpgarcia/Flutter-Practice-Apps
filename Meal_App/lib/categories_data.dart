@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-
 import './models/category.dart';
 import './models/meal.dart';
 
+//List of Types of cuisin
 const CATEGORY_DATA = const [
   Category(
     id: 'c1',
@@ -56,6 +56,7 @@ const CATEGORY_DATA = const [
   ),
 ];
 
+//Dummy meal entries
 const DUMMY_MEALS = const [
   Meal(
     id: 'm1',
