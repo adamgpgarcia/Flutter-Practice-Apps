@@ -11,6 +11,7 @@ class NewTransaction extends StatefulWidget {
 }
 
 class _NewTransactionState extends State<NewTransaction> {
+  //text editing controller is used to take in user input
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
   DateTime _selectedDate;
@@ -35,6 +36,7 @@ class _NewTransactionState extends State<NewTransaction> {
         .pop(); // exits out of add transaction page after you add a new transaction
   }
 
+  //this function records the user specified date
   void _presentDatePicker() {
     showDatePicker(
       context: context,

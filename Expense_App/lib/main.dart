@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import './widgets/new_transactions.dart';
 import './widgets/transactions_list.dart';
 import './models/transaction.dart';
@@ -16,10 +15,9 @@ class MyApp extends StatelessWidget {
       title: 'Expense App',
       theme: ThemeData(
           primarySwatch: Colors.purple,
-          //accentColor: Colors.amber,
           fontFamily: 'Quicksand',
           textTheme: ThemeData.light().textTheme.copyWith(
-                /*title: TextStyle(
+                /*title: TextStyle(                                   //deprecated
             fontFamily: 'OpenSans',
             fontWeight: FontWeight.bold,
             fontSize: 18,
@@ -27,8 +25,8 @@ class MyApp extends StatelessWidget {
                 button: TextStyle(color: Colors.white),
               ),
           appBarTheme: AppBarTheme(
-              /* textTheme: ThemeData.light().textTheme.copyWith(
-            title: TextStyle(             //says this is deprecated 
+              /* textTheme: ThemeData.light().textTheme.copyWith(     //deprecated 
+            title: TextStyle(                                         
               fontFamily: 'OpenSans',
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -47,6 +45,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
+    // Dummy Data
     // Transaction(
     //   id: 't1',
     //   title: 'New Shoes',
@@ -73,6 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList(); //this converts the iterible to a list
   }
 
+  //This function creates new transaction objects and adds to _userTransactions
   void _addNewTransactions(
       String txTitle, double txAmount, DateTime chosenDate) {
     final newTx = Transaction(
@@ -87,6 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  //This function deletes user transactions with matching ID
   void _deleteTransaction(String id) {
     setState(() {
       _userTransactions.removeWhere((tx) {
@@ -128,6 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
+      //single column scrollable list
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

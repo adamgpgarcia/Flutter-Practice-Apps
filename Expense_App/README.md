@@ -1,16 +1,15 @@
-# expense_app
+Project Title:  Personal Expense App
 
-A new Flutter project.
+Project Description: This is a personal expense which allows for a user to record their weekly expenses. Weekly expense amounts are totalled based on day and displayed with a visual bar level. Entries can be deleted after creation. 
 
-## Getting Started
+Goal: Practice creating widgets, rows, columns, containers, lists, maps, and mapping data into widgets. 
 
-This project is a starting point for a Flutter application.
+Technologies used: Dart and Flutter
 
-A few resources to get you started if this is your first Flutter project:
+Challenges: Mapping data into maps and using visual bars to signify deposit amounts.  
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Credit: Udemy Course Instructor: Maximilian Schwarzmüller 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
