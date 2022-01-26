@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-
 import './quiz.dart';
 import './result.dart';
 
 void main() {
-  runApp(
-      MyApp()); //run app is a function from material.dart that takes a input, runapp calls build method
+  //run app is a function from material.dart that takes a input, runapp calls build method
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  //Statelesswidget class is from material.dart package
+  //Stateful widget class is from material.dart package
   @override
   State<StatefulWidget> createState() => MyAppState();
 }
 
 class MyAppState extends State<MyApp> {
+  //list of question objects for the quiz
   var _questions = [
     {
       'questionText': 'What\'s your favorite color?',
@@ -36,7 +36,7 @@ class MyAppState extends State<MyApp> {
     },
     {
       'questionText': 'What\'s your favorite day?',
-       'answer': [
+      'answer': [
         {'text': 'Everyday', 'score': 5},
         {'text': 'Friday', 'score': 1},
         {'text': 'Saturday', 'score': 1},
@@ -49,17 +49,17 @@ class MyAppState extends State<MyApp> {
   var _totalScore = 0;
 
   void answerQuestion(int score) {
-    _totalScore = _totalScore + score;   // += supported
+    _totalScore = _totalScore + score; // += supported
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
     print(_questionIndex);
   }
 
-  void _restQuiz(){
+  void _restQuiz() {
     setState(() {
-       _questionIndex = 0;
-       _totalScore = 0;
+      _questionIndex = 0;
+      _totalScore = 0;
     });
   }
 
